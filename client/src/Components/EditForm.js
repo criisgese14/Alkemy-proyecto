@@ -13,7 +13,7 @@ export const EditForm = () => {
         // eslint-disable-next-line
     }, [])
 
-    const movement = allMovements.find( m => m.id == id)
+    const movement = allMovements.find( m => m.id.toString() === id)
     console.log(movement)
     const [input, setInput] = useState({
         id : id,
@@ -71,6 +71,5 @@ export const EditForm = () => {
                 <button className="boton-agregar">editar</button>
                 </div>
                 </form>
-    </div>
-    )
+    </div> )
 }

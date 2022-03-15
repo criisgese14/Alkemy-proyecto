@@ -4,10 +4,30 @@ import { Link, useHistory } from "react-router-dom"
 import { postMovement } from "../Redux/Actions";
 import './Form.css'
 
+function validate(input) {
+    let errors = {};
+    if (!input.type || input.type === '') {
+        errors.type = 'Elija un tipo'
+    }  
+    if (!input.concept || input.concept === '') {
+        errors.concept = 'Se requiere un concepto'
+    } 
+    if (!input.amount || input.amount === 0) {
+        errors.amount = 'Ingrese monto'
+    }
+    if (!input.date || input.date === '') {
+        errors.date = 'Seleccione el día'
+    }
+    return errors;
+}
+
+
+
 export const Form = () => {
 
     const dispatch = useDispatch();
     const history = useHistory()
+    const [errors, setErrors] = useState({})
     const [input, setInput] = useState({
         concept : '',
         date: '',
@@ -25,7 +45,11 @@ export const Form = () => {
         setInput({
             ...input,
             [e.target.name]: e.target.value,
-        })
+        });
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value,
+        }))
     }
 
     function handleSubmit(e) {
@@ -41,12 +65,15 @@ export const Form = () => {
         history.push("/")
     }
 
+    console.log(errors)
+    console.log(input)
+
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)} className='form'>
             <div className="option">
             <h1>Agregar nuevo movimiento</h1>
-                <label className="subtitulo">Tipo</label>
+                <label className="subtitulo">Tipo (*)</label>
                 <select onChange={e => handleChange(e)} name='type' className='input'>
                     <option>default</option>
                     <option value='Ingreso'>Ingreso</option>
@@ -54,19 +81,19 @@ export const Form = () => {
                 </select>
                 </div>
                 <div className="option">
-                <label className="subtitulo">Fecha</label>
+                <label className="subtitulo">Fecha (*)</label>
                 <input className='input' type='date' name="date" value={input.date} onChange={e => handleChange(e)} min={fechadehoy} max={fechadehoy}></input>
                 </div>
                 <div className="option">
-                <label className="subtitulo">Monto</label>
+                <label className="subtitulo">Monto (*)</label>
                 <input className='input' type='number' name="amount" value={input.amount} onChange={e => handleChange(e)}></input>
                 </div>
                 <div className="option">
-                <label className="subtitulo">Concepto</label>
+                <label className="subtitulo">Concepto (*)</label>
                 <textarea className='input' type='text' name="concept" value={input.name} onChange={e => handleChange(e)}></textarea>
                 </div>
                 <div className="botones">
-                <button className="boton-agregar">Agregar</button>
+                {!input?.concept || !input?.amount || !input?.type || !input?.date ? <button className="boton-disabled" disabled>Agregar</button> : <button className="boton-agregar">Agregar</button>} 
                 <Link to='/' className="boton">
                 <button className="boton-back">Volver</button>
             </Link>
