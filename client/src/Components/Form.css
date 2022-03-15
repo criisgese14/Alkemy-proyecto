@@ -1,0 +1,83 @@
+.form {
+    width: 50%;
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.option {
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+.boton-agregar {
+    width: 20%;
+    margin: 4% 15%;
+    padding: 5px;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+
+.boton-back {
+    padding: 10px 1px;
+    width: 200%;
+    border-radius: 1rem;
+    border: 1px solid black;
+    
+}
+
+.boton {
+    margin: 4% 15%;
+}
+
+.tipo {
+    background: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.subtitulo {
+    display: flex;
+}
+
+.input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 2%;
+}
+
+input:hover {
+    padding: 2%;
+}
+
+.botones {
+    display: flex;
+}
+
+@media (max-width: 855px) {
+    .botones {
+        display: flex;
+        flex-direction: column;
+    }
+    .boton-back {
+        width: 100%;
+    }
+    .boton-agregar {
+        width: 70%;
+        margin: 5px auto 15px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 456px) {
+    h1 {
+        font-size: 1rem;
+    }
+}
