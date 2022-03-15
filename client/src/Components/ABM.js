@@ -13,8 +13,8 @@ export const ABM = () => {
     }, []);
     return (
         <div>
-            <Link to='/'>
-                <button>Back</button>
+            <Link to='/' className="link-volver">
+                <button className="boton-volver">Atrás</button>
             </Link>
             <h1> Estos son todos los movimientos</h1>
             <Movements allMovements={allMovements}/>

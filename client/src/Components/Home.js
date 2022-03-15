@@ -35,11 +35,11 @@ export const Home = () => {
             <div>
             <h1> Saldo actual: {totalMovements()}$</h1>
             <Link to = '/form' className="boton">
-                <button>Nuevo movimiento</button>
+                <button className="boton-home">Nuevo movimiento</button>
             </Link>
             <Movements allMovements={TenMovements}/>
             <Link to = '/movements' className="boton">
-                <button>Ver todos los movimientos</button>
+                <button className="boton-home">Ver todos los movimientos</button>
             </Link>
         </div>
         ) : (

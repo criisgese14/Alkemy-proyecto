@@ -30,7 +30,27 @@
     width: 200%;
     border-radius: 1rem;
     border: 1px solid black;
+    text-decoration: none;
     
+}
+
+.boton-home {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.boton-volver {
+    margin: 15px 0 0 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    
+}
+
+.link-volver {
+    text-decoration: none;
 }
 
 .boton {

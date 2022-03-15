@@ -68,7 +68,7 @@ export const Form = () => {
                 <div className="botones">
                 <button className="boton-agregar">Agregar</button>
                 <Link to='/' className="boton">
-                <button className="boton-back">Back</button>
+                <button className="boton-back">Volver</button>
             </Link>
                 </div>
             </form>
